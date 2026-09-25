@@ -1,15 +1,32 @@
+import { useState } from 'react';
+import AccessGate from '../../../../features/access/AccessGate';
 import styles from './HiddenSection.module.css';
 
 function HiddenSection() {
+    const [isUnlocked, setIsUnlocked] = useState(false);
+
     return(
         <section className={styles.section} aria-labelledby='hidden-section-title'>
             <div className={styles.content}>
-                <h2> ¿NIEBLA? </h2>
-                <div className={styles.overlay}>
-                    <p>
-                        Parece que la niebla es muy espesa en esta zona...
-                    </p>
-                </div>
+                <h2 id='hidden-section-title'>
+                    {isUnlocked ? 'Lograste despejar la niebla' : '¿niebla?'}
+                </h2>
+                {isUnlocked ? (
+                    <div className={styles.realContent}>
+                        <p>
+                            En esta sección encontrarás algo que todavia permanece oculto
+                        </p>
+                    </div>
+                    ) : (
+                        <div className={styles.mist}>
+                            <p className={styles.message}>
+                                Parece que hay mucha niebla en esta zona...
+                            </p>
+
+                            <AccessGate onUnlock = {() => setIsUnlocked(true)} />
+                        </div>
+                    )
+                }
             </div>
         </section>
     );
