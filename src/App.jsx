@@ -1,5 +1,7 @@
+import Landing from './pages/Landing/Landing.jsx';
+
 function App() {
-  return <main />;
+  return <Landing />;
 }
 
 export default App;
