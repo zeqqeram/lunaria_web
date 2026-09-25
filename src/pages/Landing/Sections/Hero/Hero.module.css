@@ -1,0 +1,122 @@
+.hero{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 70dvh;
+    padding: var(--spacing-8) var(--spacing-5);
+    text-align: center;
+}
+
+.background, .overlay {
+    position: absolute;
+    inset: 0;
+}
+
+.background {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.overlay {
+    background-color: rgb(52 61 115 / 0.55);
+}
+
+.countdown {
+    position: absolute;
+    top: var(--spacing-5);
+    left: 50%;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-2);
+    transform: translateX(-50%);
+    color: var(--color-text-primary);
+    font-family: var(--font-ui);
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: var(--tracking-ui);
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-5);
+    width: 100%;
+}
+
+.hero h1 {
+    color: var(--color-text-primary);
+    font-family: var(--font-display);
+    font-size: var(--font-size-h1);
+    font-weight: var(--font-weight-h1);
+    line-height: var(--line-height-h1);
+}
+
+.description {
+    max-width: 32rem;
+    color: var(--color-text-primary);
+    font-family: var(--font-body);
+    font-size: var(--font-size-body);
+    font-weight: var(--font-weight-body);
+    letter-spacing: var(--tracking-body);
+    line-height: var(--line-height-body);
+}
+
+.cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: var(--spacing-3) var(--spacing-5);
+    border: 1px solid var(--color-accent);
+    border-radius: var(--radius-full);
+    background-color: var(--color-accent);
+    color: var(--color-text-primary);
+    font-family: var(--font-ui);
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: var(--tracking-ui);
+    text-transform: uppercase;
+    transition: opacity var(--transition-fast);
+}
+
+.cta:hover {
+    opacity: 0.8;
+}
+
+.cta:focus-visible {
+    outline: 2px solid var(--color-text-primary);
+    outline-offset: 4px;
+}
+
+@media (min-width: 768px) {
+    .hero {
+        padding-inline: var(--spacing-7);
+    }
+
+    .hero h1 {
+        font-size: 5rem;
+    }
+
+    .description {
+        font-size: 1.125rem;
+    }
+
+    .countdown {
+        top: 50%;
+        left: var(--spacing-7);
+        right: auto;
+        width: 30%;
+        justify-content: flex-start;
+        transform: translateY(-50%);
+    }
+
+    .countdown span:nth-child(even) {
+        display:  inline;
+    }
+}
