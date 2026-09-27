@@ -110,6 +110,17 @@
     outline-offset: 4px;
 }
 
+.realContent {
+    gap: var(--spacing-5);
+}
+
+.realContent > div {
+    width: 100%;
+    min-height: 400px;
+    overflow: hidden;
+    border-radius: var(--radius-md);
+}
+
 @media (min-width: 768px) {
     .section {
         padding-inline: var(--spacing-7);

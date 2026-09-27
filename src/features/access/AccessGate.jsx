@@ -15,7 +15,7 @@ function AccessGate({onUnlock}) {
     return (
         <form onSubmit={handleSubmit}>
             <label htmlFor="access-code"> ¿Tenés una flor de viento? </label>
-            <input id="access-code" name="code" type="text" autocomplete="off" />
+            <input id="access-code" name="code" type="text" autoComplete="off" />
             <button type="submit"> Desbloquear </button>
         </form>
     );
