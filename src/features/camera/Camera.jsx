@@ -11,7 +11,7 @@ function Camera() {
             try {
                 stream = await navigator.mediaDevices.getUserMedia({
                     video: {
-                        facingMode: 'enviroment',
+                        facingMode: 'environment',
                     },
                     audio: false,
                 });
