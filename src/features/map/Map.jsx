@@ -1,33 +1,19 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Circle, MapContainer, Marker, TileLayer } from "react-leaflet";
-import 'leaflet/dist/leaflet.css';
-import UserLocation from "./UserLacation.jsx";
 import { latLng } from "leaflet";
+import useGeolocation from "../../hooks/useGeolocation.js";
+import UserLocation from "./UserLacation.jsx";
+import 'leaflet/dist/leaflet.css';
 
 const INITIAL_POSITION = [-34.922033, -57.941032];
-const ZONE_POSITION = [-34.900870, -57.912936];
+const ZONE_POSITION = [-34.922033, -57.941032];
 const ZONE_RADIUS = 100;
+const DEMO = true; // Temporal para probar geolocalizacion
 
 function Map({onZoneStatusChange}) {
-    const [position, setPosition] = useState(null);
-    
-    useEffect(() => {
-        if (!navigator.geolocation) {
-            return;
-        }
-
-        navigator.geolocation.getCurrentPosition(
-            (location) => {
-                setPosition([
-                    location.coords.latitude,
-                    location.coords.longitude,
-                ]);
-            },
-        );
-    }, [] );
-
+    const {position} = useGeolocation();    
     const distanceToZone = position ? latLng(position).distanceTo(ZONE_POSITION) : null;
-    const isInsideZone = distanceToZone !== null && distanceToZone <= ZONE_RADIUS;
+    const isInsideZone = DEMO || distanceToZone !== null && distanceToZone <= ZONE_RADIUS;
     useEffect(() => {
         if (!position) {
             return;
