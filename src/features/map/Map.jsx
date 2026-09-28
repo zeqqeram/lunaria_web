@@ -5,10 +5,10 @@ import UserLocation from "./UserLacation.jsx";
 import { latLng } from "leaflet";
 
 const INITIAL_POSITION = [-34.922033, -57.941032];
-const ZONE_POSITION = [-34.922033, -57.941032];
+const ZONE_POSITION = [-34.900870, -57.912936];
 const ZONE_RADIUS = 100;
 
-function Map() {
+function Map({onZoneStatusChange}) {
     const [position, setPosition] = useState(null);
     
     useEffect(() => {
@@ -27,8 +27,13 @@ function Map() {
     }, [] );
 
     const distanceToZone = position ? latLng(position).distanceTo(ZONE_POSITION) : null;
-    const isInsideZone = distanceToZone !== null && distanceToZone <= ZONE_POSITION;
-
+    const isInsideZone = distanceToZone !== null && distanceToZone <= ZONE_RADIUS;
+    useEffect(() => {
+        if (!position) {
+            return;
+        }
+        onZoneStatusChange(isInsideZone);
+    }, [isInsideZone, onZoneStatusChange, position]);
     return (
     <>
         <MapContainer 
@@ -46,10 +51,17 @@ function Map() {
                 : 'Buscando tu ubicación...'  
             }
         </p>
+        <p>
+            Distancia: {distanceToZone !== null
+            ? `${Math.round(distanceToZone)}m`
+            : 'Calculando...'}
+            <br />
+            Dentro de la zona: {isInsideZone ? 'SI' : 'AÚN NO'}
+        </p>
     </>
     );
 }
-   
+
 
 export default Map;
 
