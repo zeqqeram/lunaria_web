@@ -2,6 +2,7 @@ import { useCallback, useState } from 'react';
 import AccessGate from '../../../../features/access/AccessGate';
 import Map from '../../../../features/map/Map';
 import styles from './HiddenSection.module.css';
+import Camera from '../../../../features/camera/Camera';
 
 function HiddenSection() {
     const [isUnlocked, setIsUnlocked] = useState(false);
@@ -29,11 +30,7 @@ function HiddenSection() {
                                 Explorar
                             </button>
                         )}
-                        {isExperienceStarted && (
-                            <p>
-                                La experiencia de cámara empieza acá
-                            </p>
-                        )}
+                        {isExperienceStarted && <Camera />}
                     </div>
                 ) : (
                     <div className={styles.mist}>
