@@ -23,22 +23,6 @@
     background-color: rgb(52 61 115 / 0.55);
 }
 
-.countdown {
-    position: absolute;
-    top: var(--spacing-5);
-    left: 50%;
-    z-index: 1;
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-2);
-    transform: translateX(-50%);
-    color: var(--color-text-primary);
-    font-family: var(--font-ui);
-    font-size: 0.875rem;
-    font-weight: 500;
-    letter-spacing: var(--tracking-ui);
-}
-
 .content {
     position: relative;
     z-index: 1;
@@ -107,16 +91,4 @@
         font-size: 1.125rem;
     }
 
-    .countdown {
-        top: 50%;
-        left: var(--spacing-7);
-        right: auto;
-        width: 30%;
-        justify-content: flex-start;
-        transform: translateY(-50%);
-    }
-
-    .countdown span:nth-child(even) {
-        display:  inline;
-    }
 }
