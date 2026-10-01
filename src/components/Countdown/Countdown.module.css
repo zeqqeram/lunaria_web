@@ -1,12 +1,14 @@
 .countdown {
-    position: absolute;
-    top: var(--spacing-5);
-    left: 50%;
-    z-index: 1;
+    position: sticky;
+    top: 0;
+    background-color: var(--color-accent);
+    z-index: 10;
     display: flex;
     align-items: center;
-    gap: var(--spacing-2);
-    transform: translateX(-50%);
+    justify-content: center;
+    width: 100%;
+    min-height: 44px;
+    padding: var(--spacing-2) var(--spacing-4);
     color: var(--color-text-primary);
     font-family: var(--font-ui);
     font-size: 0.875rem;
