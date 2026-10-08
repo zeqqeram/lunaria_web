@@ -1,0 +1,21 @@
+.page {
+    min-height: 100dvh;
+    padding: var(--spacing-8) var(--spacing-5);
+}
+
+.page h1 {
+    margin-bottom: var(--spacing-5);
+    color: var(--color-text-primary);
+    font-family: var(--font-ui);
+    font-size: var(--font-size-h2);
+    font-weight: var(--font-weight-h2);
+    letter-spacing: var(--tracking-ui);
+    line-height: var(--line-height-h2);
+    text-transform: uppercase;
+}
+
+@media (min-width: 768px) {
+.page {
+    padding-inline: var(--spacing-7);
+}
+}

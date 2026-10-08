@@ -8,9 +8,9 @@ function Hero() {
             <div className={styles.overlay} aria-hidden='true' />
             
             <div className={styles.content}>
-                <h1 id="hero-title"> Lunaria </h1>
+                <h1 id="hero-title"> Florexum </h1>
                 <p className={styles.description}>
-                    ¿Estás preparado/a para descubrir un nuevo universo?
+                    ¿Estás preparado para el florecimiento de la lunaria? Preparate para el evento que define gran parte de tu futuro en el gran universo de Lunaria
                 </p>
                 <a className={styles.cta} href="/"> DESCUBRIR </a>
             </div>

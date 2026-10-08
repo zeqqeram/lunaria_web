@@ -16,6 +16,10 @@
     letter-spacing: var(--tracking-ui);
 }
 
+.inline {
+    position: static;
+}
+
 @media (min-width: 768px) {
     .countdown {
         top: 50%;
