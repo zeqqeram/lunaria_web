@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import styles from './Header.module.css';
+import { Link } from 'react-router';
 
 function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -15,7 +16,9 @@ function Header() {
     return (
         <header className={styles.header}>
             <nav className={styles.nav} aria-label="Navegación principal">
-                <a className={styles.login} href="/"> Iniciar <br /> Sesión </a>
+                <Link className={styles.login} to="/acceso">
+                    Iniciar <br /> Sesión
+                </Link>
                 <div className={styles.leftGroup}>
                     <a  className={styles.logo} href="/"> LUNARIA </a>
                     <div className={styles.desktopLinks}>

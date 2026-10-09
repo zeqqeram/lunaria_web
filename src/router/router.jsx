@@ -1,8 +1,11 @@
 import { createBrowserRouter } from 'react-router';
-import Landing from '../pages/Landing/Landing.jsx';
-import MapPage from '../pages/Map/MapPage.jsx' ;
-import SeedsPage from '../pages/Seeds/SeedsPage.jsx' ;
 
+import Landing from '../pages/Landing/Landing.jsx';
+import MapPage from '../pages/Map/MapPage.jsx';
+import SeedsPage from '../pages/Seeds/SeedsPage.jsx';
+import AuthPage from '../pages/Auth/AuthPage.jsx';
+import ProfilePage from '../pages/Profile/ProfilePage.jsx';
+import ProtectedRoute from '../components/ProtectedRoute/ProtectedRoute.jsx';
 
 const router = createBrowserRouter([
     {
@@ -16,6 +19,19 @@ const router = createBrowserRouter([
     {
         path: '/seeds',
         element: <SeedsPage />,
+    },
+    {
+        path: '/acceso',
+        element: <AuthPage />,
+    },
+    {
+        element: <ProtectedRoute />,
+        children: [
+            {
+                path: '/perfil',
+                element: <ProfilePage />,
+            },
+        ],
     },
 ]);
 

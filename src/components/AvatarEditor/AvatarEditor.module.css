@@ -1,0 +1,93 @@
+
+.editor {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-4);
+    align-items: stretch;
+}
+
+.preview {
+    position: relative;
+    width: min(100%, 280px);
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    margin-inline: auto;
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    background: var(--surface-medium);
+}
+
+.layer {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    pointer-events: none;
+}
+
+.options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-3);
+    min-width: 0;
+    padding: var(--spacing-4);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+}
+
+.options legend {
+    padding-inline: var(--spacing-2);
+    font-family: var(--font-ui);
+}
+
+.choices {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-2);
+}
+
+.choice,
+.selected {
+    min-height: 40px;
+    padding: var(--spacing-2) var(--spacing-3);
+    border: 1px solid var(--border-accent);
+    border-radius: var(--radius-full);
+    background: transparent;
+    color: var(--color-text-primary);
+    cursor: pointer;
+}
+
+.selected {
+    background: var(--color-accent);
+    border-color: var(--color-text-primary);
+}
+
+.options label {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-2);
+}
+
+.saveButton {
+    min-height: 44px;
+    padding: var(--spacing-3) var(--spacing-5);
+    border: 0;
+    border-radius: var(--radius-full);
+    background: var(--color-accent);
+    color: white;
+    font-family: var(--font-ui);
+    cursor: pointer;
+}
+
+.choice:focus-visible,
+.selected:focus-visible,
+.saveButton:focus-visible {
+    outline: 2px solid var(--color-text-primary);
+    outline-offset: 3px;
+}
+
+.saveButton:disabled {
+    cursor: wait;
+    opacity: 0.7;
+}

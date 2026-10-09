@@ -1,0 +1,159 @@
+.page {
+    min-height: 100vh;
+    padding: var(--spacing-6) var(--spacing-4);
+    background: var(--color-bg-primary);
+    color: var(--color-text-primary);
+}
+
+.profile {
+    width: 100%;
+    max-width: 760px;
+    margin-inline: auto;
+}
+
+.header {
+    margin-bottom: var(--spacing-7);
+    text-align: center;
+}
+
+.eyebrow {
+    font-family: var(--font-ui);
+    letter-spacing: var(--tracking-ui);
+}
+
+.header h1 {
+    font-family: var(--font-display);
+    font-size: var(--font-size-h1);
+    font-weight: var(--font-weight-h1);
+    line-height: var(--line-height-h1);
+}
+
+.avatarSection,
+.details,
+.medalsSection {
+    margin-bottom: var(--spacing-5);
+    padding: var(--spacing-5);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    background: var(--surface-soft);
+    text-align: center;
+}
+
+.avatarPlaceholder {
+    display: grid;
+    width: 120px;
+    aspect-ratio: 1;
+    place-items: center;
+    margin: 0 auto var(--spacing-4);
+    border: 1px solid var(--border-accent);
+    border-radius: var(--radius-full);
+    background: var(--surface-medium);
+    box-shadow: var(--glow-warm);
+    font-size: 3rem;
+}
+
+.profile h2 {
+    font-family: var(--font-ui);
+    font-size: 1.125rem;
+    font-weight: var(--font-weight-h2);
+}
+
+.details form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-3);
+    max-width: 420px;
+    margin: var(--spacing-4) auto 0;
+    text-align: left;
+}
+
+.details label {
+    font-family: var(--font-ui);
+    font-size: 0.875rem;
+}
+
+.details input {
+    width: 100%;
+    min-height: 44px;
+    padding: var(--spacing-3);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-sm);
+    background: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    font: inherit;
+}
+
+.details button,
+.signOut {
+    min-height: 44px;
+    padding: var(--spacing-3) var(--spacing-5);
+    border: 0;
+    border-radius: var(--radius-full);
+    background: var(--color-accent);
+    color: white;
+    font-family: var(--font-ui);
+    cursor: pointer;
+}
+
+.details button:disabled {
+    cursor: wait;
+    opacity: 0.7;
+}
+
+.medals {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: var(--spacing-3);
+    max-width: 440px;
+    margin: var(--spacing-5) auto 0;
+}
+
+.medalSlot {
+    display: grid;
+    aspect-ratio: 1;
+    place-items: center;
+    border: 1px dashed var(--border-accent);
+    border-radius: var(--radius-md);
+    background: var(--surface-medium);
+    color: var(--color-text-primary);
+    font-size: 1.5rem;
+}
+
+.success {
+    color: var(--color-text-primary);
+}
+
+.error {
+    overflow-wrap: anywhere;
+    color: #ffb4ab;
+}
+
+.signOut {
+    display: block;
+    margin: var(--spacing-6) auto 0;
+    background: transparent;
+    border: 1px solid var(--border-subtle);
+}
+
+.details input:focus-visible,
+.details button:focus-visible,
+.signOut:focus-visible {
+    outline: 2px solid var(--color-text-primary);
+    outline-offset: 3px;
+}
+
+@media (max-width: 480px) {
+    .page {
+        padding: var(--spacing-5) var(--spacing-3);
+    }
+
+    .avatarSection,
+    .details,
+    .medalsSection {
+        padding: var(--spacing-4);
+    }
+
+    .medals {
+        gap: var(--spacing-2);
+    }
+}
