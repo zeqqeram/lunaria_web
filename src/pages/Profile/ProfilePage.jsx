@@ -8,6 +8,8 @@ import {
 } from '../../services/profileService.js';
 import AvatarEditor from '../../components/AvatarEditor/AvatarEditor.jsx';
 import styles from './ProfilePage.module.css';
+import Header from '../../components/Header/Header.jsx';
+import Footer from '../../components/Footer/Footer.jsx';
 
 const EMPTY_MEDALS = [null, null, null, null, null];
 
@@ -139,10 +141,11 @@ function ProfilePage() {
         : EMPTY_MEDALS;
 
     return (
+        <>
+        <Header />
         <main className={styles.page}>
             <section className={styles.profile}>
                 <header className={styles.header}>
-                    <p className={styles.eyebrow}>LUNARIA</p>
                     <h1>Tu espacio personal</h1>
                     <p>Tu aventura comienza aquí.</p>
                 </header>
@@ -243,16 +246,10 @@ function ProfilePage() {
                         })}
                     </div>
                 </section>
-
-                <button
-                    className={styles.signOut}
-                    type="button"
-                    onClick={handleSignOut}
-                >
-                    Cerrar sesión
-                </button>
             </section>
         </main>
+        <Footer />
+        </>
     );
 }
 

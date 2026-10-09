@@ -24,6 +24,11 @@
     text-decoration: none;
 }
 
+.card div {
+    display: flex;
+    flex-direction: column;
+}
+
 .card h1 {
     margin: 0 0 var(--spacing-3);
     font-family: var(--font-ui);
