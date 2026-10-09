@@ -13,7 +13,7 @@ function AuthPage() {
 
     async function handleSubmit(event) {
         event.preventDefault();
-
+  
         setMessage('');
         setErrorMessage('');
         setIsSubmitting(true);
