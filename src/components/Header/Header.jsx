@@ -104,10 +104,6 @@ function Header() {
                             )}
 
                             <Link to="/" onClick={handleCloseMenu}>
-                                ¿Qué es FLOREXUM?
-                            </Link>
-
-                            <Link to="/" onClick={handleCloseMenu}>
                                 Roadmap de actividades
                             </Link>
 

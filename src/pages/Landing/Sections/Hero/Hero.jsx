@@ -10,9 +10,9 @@ function Hero() {
             <div className={styles.content}>
                 <h1 id="hero-title"> Florexum </h1>
                 <p className={styles.description}>
-                    ¿Estás preparado para el florecimiento de la lunaria? Preparate para el evento que define gran parte de tu futuro en el gran universo de Lunaria
+                    La primavera trae consigo algo extraordinario. La naturaleza comienza a despertar y pronto la ciudad se llenará de magia, encuentros y celebración.
                 </p>
-                <a className={styles.cta} href="/"> DESCUBRIR </a>
+                <a className={styles.cta} href="/"> QUIERO SER PARTE </a>
             </div>
         </section>
     );

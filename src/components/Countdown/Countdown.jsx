@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import styles from './Countdown.module.css';
 
-const TARGET_DATE = new Date('2026-10-12T13:00:00-03:00');
+const TARGET_DATE = new Date('2026-11-12T13:00:00-03:00');
 
 function Countdown ({onComplete, sticky = true}) {
     const [timeLeft, setTimeLeft] = useState(TARGET_DATE.getTime() - Date.now());
