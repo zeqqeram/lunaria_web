@@ -2,6 +2,7 @@ import { createBrowserRouter } from 'react-router';
 
 import Landing from '../pages/Landing/Landing.jsx';
 import MapPage from '../pages/Map/MapPage.jsx';
+import CameraPage from '../pages/Camera/CameraPage.jsx';
 import SeedsPage from '../pages/Seeds/SeedsPage.jsx';
 import AuthPage from '../pages/Auth/AuthPage.jsx';
 import ProfilePage from '../pages/Profile/ProfilePage.jsx';
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
     {
         path: '/map',
         element: <MapPage />,
+    },
+    {
+        path: '/map/camera',
+        element: <CameraPage />,
     },
     {
         path: '/seeds',

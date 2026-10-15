@@ -1,4 +1,4 @@
-import seedsImage from '../../../../assets/seeds/seeds_img_temp.webp';
+import seedsImage from '../../../../assets/seeds/seeds_img_temp.png';
 import LockedSection from '../../../../components/LockedSection/LockedSection.jsx';
 import styles from './SeedsPreview.module.css';
 import { Link } from 'react-router';

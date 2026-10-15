@@ -28,51 +28,59 @@
     line-height: var(--line-height-h1);
 }
 
-.avatarSection,
-.details,
-.medalsSection {
+.avatarSection {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-5);
+    align-items: center;
     margin-bottom: var(--spacing-5);
-    padding: var(--spacing-5);
+    padding: var(--spacing-4);
+    padding-bottom: calc(var(--spacing-4) + 72px);
     border: 1px solid var(--border-subtle);
     border-radius: var(--radius-lg);
     background: var(--surface-soft);
     text-align: center;
 }
 
-.avatarPlaceholder {
-    display: grid;
-    width: 120px;
-    aspect-ratio: 1;
-    place-items: center;
-    margin: 0 auto var(--spacing-4);
-    border: 1px solid var(--border-accent);
-    border-radius: var(--radius-full);
-    background: var(--surface-medium);
-    box-shadow: var(--glow-warm);
-    font-size: 3rem;
+.medalsSection {
+    position: absolute;
+    right: 0;
+    bottom: var(--spacing-1);
+    left: 0;
+    padding-inline: var(--spacing-4);
+    text-align: center;
 }
 
-.profile h2 {
-    font-family: var(--font-ui);
-    font-size: 1.125rem;
-    font-weight: var(--font-weight-h2);
+.identityHeader {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-3);
+    width: 100%;
+    min-width: 0;
 }
 
-.details form {
+.userName {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: var(--font-size-h2);
+    font-weight: var(--font-weight-h1);
+    line-height: var(--line-height-h2);
+    color: var(--color-text-primary);
+    overflow-wrap: anywhere;
+}
+
+.nameForm {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-3);
+    width: 100%;
     max-width: 420px;
-    margin: var(--spacing-4) auto 0;
-    text-align: left;
 }
 
-.details label {
-    font-family: var(--font-ui);
-    font-size: 0.875rem;
-}
-
-.details input {
+.nameForm input {
     width: 100%;
     min-height: 44px;
     padding: var(--spacing-3);
@@ -81,23 +89,114 @@
     background: var(--color-bg-primary);
     color: var(--color-text-primary);
     font: inherit;
+    text-align: center;
 }
 
-.details button,
-.signOut {
+.nameActions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-2);
+    justify-content: center;
+}
+
+.primaryButton,
+.secondaryButton {
     min-height: 44px;
     padding: var(--spacing-3) var(--spacing-5);
-    border: 0;
     border-radius: var(--radius-full);
-    background: var(--color-accent);
-    color: white;
     font-family: var(--font-ui);
     cursor: pointer;
+    transition: background var(--transition-fast);
 }
 
-.details button:disabled {
+.primaryButton {
+    border: 0;
+    background: var(--color-accent);
+    color: white;
+}
+
+.secondaryButton {
+    border: 1px solid var(--border-accent);
+    background: transparent;
+    color: var(--color-text-primary);
+}
+
+.secondaryButton:hover {
+    background: var(--surface-medium);
+}
+
+.primaryButton:disabled,
+.secondaryButton:disabled {
     cursor: wait;
     opacity: 0.7;
+}
+
+.avatarView {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.avatarHover {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: min(100%, 280px);
+}
+
+.editAvatarButton {
+    position: absolute;
+    top: var(--spacing-3);
+    left: 50%;
+    transform: translateX(-50%);
+    min-height: 40px;
+    padding: var(--spacing-2) var(--spacing-4);
+    border: 1px solid var(--border-accent);
+    border-radius: var(--radius-full);
+    background: var(--surface-strong);
+    backdrop-filter: blur(var(--blur-surface));
+    color: var(--color-text-primary);
+    font-family: var(--font-ui);
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--transition-base);
+}
+
+.avatarHover:hover .editAvatarButton,
+.avatarHover:focus-within .editAvatarButton {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.editAvatarButton:focus-visible {
+    outline: 2px solid var(--color-text-primary);
+    outline-offset: 3px;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+@media (hover: none) {
+    .editAvatarButton {
+        opacity: 1;
+        pointer-events: auto;
+    }
+}
+
+.editButton {
+    min-height: 44px;
+    padding: var(--spacing-2) var(--spacing-4);
+    border: 1px solid var(--border-accent);
+    border-radius: var(--radius-full);
+    background: transparent;
+    color: var(--color-text-primary);
+    font-family: var(--font-ui);
+    cursor: pointer;
+    transition: background var(--transition-fast);
+}
+
+.editButton:hover {
+    background: var(--surface-medium);
 }
 
 .medals {
@@ -105,7 +204,7 @@
     grid-template-columns: repeat(5, minmax(0, 1fr));
     gap: var(--spacing-3);
     max-width: 440px;
-    margin: var(--spacing-5) auto 0;
+    margin: 0 auto;
 }
 
 .medalSlot {
@@ -114,9 +213,9 @@
     place-items: center;
     border: 1px dashed var(--border-accent);
     border-radius: var(--radius-md);
-    background: var(--surface-medium);
+    background: var(--color-bg-secondary);
     color: var(--color-text-primary);
-    font-size: 1.5rem;
+    font-size: 1.25rem;
 }
 
 .success {
@@ -128,18 +227,48 @@
     color: #ffb4ab;
 }
 
-.signOut {
-    display: block;
-    margin: var(--spacing-6) auto 0;
-    background: transparent;
-    border: 1px solid var(--border-subtle);
-}
-
-.details input:focus-visible,
-.details button:focus-visible,
-.signOut:focus-visible {
+.primaryButton:focus-visible,
+.secondaryButton:focus-visible,
+.editButton:focus-visible,
+.nameForm input:focus-visible {
     outline: 2px solid var(--color-text-primary);
     outline-offset: 3px;
+}
+
+
+@media (min-width: 768px) {
+    .avatarSection {
+        flex-direction: row-reverse;
+        align-items: center;
+        justify-content: center;
+        gap: var(--spacing-7);
+        text-align: left;
+    }
+
+    
+    .avatarView {
+        flex: 0 0 280px;
+        width:280px;
+    }
+
+    .identityHeader {
+        flex: 1 1 auto;
+        min-width: 0;
+        max-width:280px;
+    }
+
+
+    .nameForm {
+        max-width: none;
+    }
+
+    .nameForm input {
+        text-align: left;
+    }
+
+    .nameActions {
+        justify-content: flex-start;
+    }
 }
 
 @media (max-width: 480px) {
@@ -148,7 +277,6 @@
     }
 
     .avatarSection,
-    .details,
     .medalsSection {
         padding: var(--spacing-4);
     }

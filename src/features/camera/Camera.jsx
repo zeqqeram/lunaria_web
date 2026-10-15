@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import styles from './Camera.module.css';
 
 function Camera() {
     const videoRef = useRef(null);
@@ -7,7 +8,7 @@ function Camera() {
     useEffect(() => {
         let stream;
 
-        async function startCamera () {
+        async function startCamera() {
             try {
                 stream = await navigator.mediaDevices.getUserMedia({
                     video: {
@@ -18,7 +19,7 @@ function Camera() {
 
                 if (videoRef.current) {
                     videoRef.current.srcObject = stream;
-                } 
+                }
             } catch {
                 setError('No se pudo acceder a la cámara');
             }
@@ -35,16 +36,16 @@ function Camera() {
 
     if (error) {
         return (
-            <section>
-                <h2> Cámara </h2>
-                <p> {error} </p>
+            <section className={styles.camera}>
+                <h2>Cámara</h2>
+                <p>{error}</p>
             </section>
         );
     }
 
     return (
-        <section>
-            <h2> Cámara </h2>
+        <section className={styles.camera}>
+            <h2>Cámara</h2>
             <video ref={videoRef} autoPlay playsInline muted />
         </section>
     );

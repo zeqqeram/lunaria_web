@@ -1,6 +1,6 @@
-
 import { useState } from 'react';
 
+import Avatar from '../Avatar/Avatar.jsx';
 import styles from './AvatarEditor.module.css';
 
 const AVATAR_OPTIONS = {
@@ -26,8 +26,12 @@ const DEFAULT_AVATAR = {
     tShirt: true,
 };
 
-function AvatarEditor({ initialAvatar, onSave, saving = false }) {
-
+function AvatarEditor({
+    initialAvatar,
+    onSave,
+    onCancel,
+    saving = false,
+}) {
     const [avatar, setAvatar] = useState(() => {
         const saved = initialAvatar ?? {};
 
@@ -67,38 +71,10 @@ function AvatarEditor({ initialAvatar, onSave, saving = false }) {
     }
 
     return (
-        <section className={styles.editor} aria-labelledby="avatar-editor-title">
-            <h2 id="avatar-editor-title">Personaliza tu avatar</h2>
+        <section className={styles.editor} aria-labelledby="avatar-title">
+            <h2 id="avatar-title">Personaliza tu avatar</h2>
 
-            <div className={styles.preview} aria-label="Vista previa del avatar">
-                <img
-                    className={styles.layer}
-                    src={`/avatars/skin/${avatar.skin}.png`}
-                    alt=""
-                />
-
-                {avatar.tShirt && (
-                    <img
-                        className={styles.layer}
-                        src="/avatars/clothes/tShirt.png"
-                        alt=""
-                    />
-                )}
-
-                <img
-                    className={styles.layer}
-                    src={`/avatars/hair/${avatar.hair}.png`}
-                    alt=""
-                />
-
-                {avatar.flowerCrown && (
-                    <img
-                        className={styles.layer}
-                        src="/avatars/accessories/flowerCrown.png"
-                        alt=""
-                    />
-                )}
-            </div>
+            <Avatar avatar={avatar} />
 
             <fieldset className={styles.options}>
                 <legend>Tono de piel</legend>
@@ -170,14 +146,27 @@ function AvatarEditor({ initialAvatar, onSave, saving = false }) {
                 </label>
             </fieldset>
 
-            <button
-                className={styles.saveButton}
-                type="button"
-                onClick={handleSave}
-                disabled={saving}
-            >
-                {saving ? 'Guardando...' : 'Guardar avatar'}
-            </button>
+            <div className={styles.actions}>
+                {onCancel && (
+                    <button
+                        type="button"
+                        className={styles.cancelButton}
+                        onClick={onCancel}
+                        disabled={saving}
+                    >
+                        Cancelar
+                    </button>
+                )}
+
+                <button
+                    className={styles.saveButton}
+                    type="button"
+                    onClick={handleSave}
+                    disabled={saving}
+                >
+                    {saving ? 'Guardando...' : 'Guardar avatar'}
+                </button>
+            </div>
         </section>
     );
 }

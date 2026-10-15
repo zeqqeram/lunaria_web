@@ -103,7 +103,7 @@ function Header() {
                                 </Link>
                             )}
 
-                            <Link to="/" onClick={handleCloseMenu}>
+                            <Link to="/#roadmap" onClick={handleCloseMenu}>
                                 Roadmap de actividades
                             </Link>
 
